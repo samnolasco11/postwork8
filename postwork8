@@ -1,0 +1,28 @@
+#Desde MongoDB Compass, entrar a las base de datos API:
+
+#Estructura de los datos:
+
+{"Country":"",
+"Slug":"",
+"NewConfirmed":0,
+"TotalConfirmed":0,
+"NewDeaths":0,
+"TotalDeaths":0,
+"NewRecovered":0,
+"TotalRecovered":0}
+
+#Paises con Nuevos confirmados
+$sort
+{
+  NewConfirmed: -1
+  }
+#Paises con más muertes
+$sort
+{
+  TotalDeaths: -1
+  }
+#Paises con más de 10 recuperados
+$match
+{
+  TotalRecovered: {$gte: 10}
+  }
